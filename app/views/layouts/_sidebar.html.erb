@@ -1,5 +1,11 @@
 <div class="avatar">
-  <fb:profile-pic uid="<%= current_user.try(:identifier) %>" size="normal" facebook-logo="true" />
+  <fb:profile-pic uid="<%= current_user.try(:identifier) %>" size="normal" facebook-logo="true"></fb:profile-pic>
 </div>
 
-<fb:login-button length="long" autologoutlink="true" perms="read_stream"></fb:login-button>
+<dl>
+  <dt>JavaScript SDK</dt>
+  <dd><fb:login-button length="long" autologoutlink="true" perms="<%= Facebook.config[:perms] %>"></fb:login-button></dd>
+  <dt>Normal OAuth flow</dt>
+  <dd><%= link_to image_tag('http://developers.facebook.com/images/devsite/login-button.png'), new_facebook_path %></dd>
+</dl>
+

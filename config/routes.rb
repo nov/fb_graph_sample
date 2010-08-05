@@ -1,5 +1,7 @@
 FbGraphSample::Application.routes.draw do
-  resource :facebook
+  resource :facebook do
+    get :callback, :to => :create
+  end
 
   get 'dashboard' => 'dashboard#show'
 
