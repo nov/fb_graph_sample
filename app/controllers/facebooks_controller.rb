@@ -22,10 +22,6 @@ class FacebooksController < ApplicationController
       :redirect_uri => callback_facebook_url
     )
     user = FbGraph::User.me(access_token).fetch
-
-    # TODO: fix this issue in fb_graph gem
-    user.access_token = access_token
-
     authenticate Facebook.identify(user)
     redirect_to dashboard_url
   end
