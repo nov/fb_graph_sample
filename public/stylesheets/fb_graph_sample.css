@@ -81,11 +81,11 @@ ol {
 }
 .container .main > section {
   float: left;
-  width: 500px;
+  width: 480px;
 }
 .container .main > aside {
   float: right;
-  width: 216px;
+  width: 300px;
 }
 .container > footer {
   text-align: center;
