@@ -1,2 +1,5 @@
-<fb:profile-pic size="square"></fb:profile-pic>
-<fb:login-button length="long" autologoutlink="true"></fb:login-button>
+<div class="avatar">
+  <fb:profile-pic uid="<%= current_user.try(:identifier) %>" size="normal" facebook-logo="true" />
+</div>
+
+<fb:login-button length="long" autologoutlink="true" perms="read_stream"></fb:login-button>

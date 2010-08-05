@@ -1,7 +1,7 @@
 FbGraphSample::Application.routes.draw do
   resource :facebook
 
-  get 'dashboard' => 'dashbaord#show'
+  get 'dashboard' => 'dashboard#show'
 
   root :to => 'top#index'
 
