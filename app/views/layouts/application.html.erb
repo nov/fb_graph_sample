@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:fb="http://www.facebook.com/2008/fbml">
+  <head>
+    <title>FbGraphSample</title>
+    <%= stylesheet_link_tag :all %>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.js"></script>
+    <%= javascript_include_tag :all %>
+    <%= csrf_meta_tag %>
+  </head>
+  <body>
+    <div id="fb-root"></div>
+    <div class="container">
+      <header class="container">
+        <h1>FbGraph Sample</h1>
+      </header>
+      <div class="main">
+        <section>
+          <%= yield %>
+        </section>
+        <aside>
+          <%= render :partial => 'layouts/sidebar' %>
+        </aside>
+      </div>
+      <footer>
+        <nav>
+          <ul>
+            <li class="copyright">&copy; 2010 @nov</li>
+            <li>using Facebook Graph API</li>
+            <li>hosted on @heroku</li>
+          </ul>
+        </nav>
+      </footer>
+    </div>
+    <script src="http://connect.facebook.net/en_US/all.js"></script>
+    <script>
+      FB.init({
+        appId: "<%= Facebook.config[:client_id] %>",
+        cookie: true,
+        xfbml: true
+      });
+      FB.Event.subscribe('auth.sessionChange', function(response) {
+        if (response.session) {
+          // A user has logged in, and a new cookie has been saved
+          location.href = '<%= facebook_path %>';
+        } else {
+          // The user has logged out, and the cookie has been cleared
+          location.href = '<%= root_path %>';
+        }
+      });
+    </script>
+    <script type="text/javascript">
+      $(function () {
+        <% if flash[:error] %>
+          $.gritter.add({
+            title: "<%= flash[:error][:title] %>",
+            text : "<%= flash[:error][:message] %>",
+            image: "<%= flash[:error][:image] %>",
+            time : 5000
+          });
+        <% elsif flash[:notice] %>
+          $.gritter.add({
+            title: "<%= flash[:notice][:title] %>",
+            text : "<%= flash[:notice][:message] %>",
+            image: "<%= flash[:notice][:image] %>",
+            time : 3000
+          });
+        <% end %>
+      });
+    </script>
+  </body>
+</html>
