@@ -1,0 +1,13 @@
+<h2>Hello <fb:name uid="<%= current_user.identifier %>" useyou="false"></fb:name>!</h2>
+
+<ul class="timeline">
+  <% current_user.profile.home.each do |post| %>
+    <li class="post clearfix">
+      <div class="avatar">
+        <fb:profile-pic uid="<%= post.from.identifier %>" size="square"></fb:profile-pic>
+      </div>
+      <strong><fb:name uid="<%= post.from.identifier %>"></fb:name></strong>
+      <%= post.message || post.caption || post.description %>
+    </li>
+  <% end %>
+</ul>
