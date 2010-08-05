@@ -17,6 +17,15 @@ a:hover {
   color: #57B6DD;
   text-decoration: underline;
 }
+p {
+  margin: 1em;
+}
+dt {
+  font-weight: bolder;
+}
+dd {
+  margin: .5em 0 1em 1em;
+}
 img {
   border: none;
 }
@@ -105,9 +114,8 @@ ol {
 
 /*-----------------]: footer :[---------------------*/
 
-.container > footer li {
+.container > footer p {
   color: #C1B49A;
-  display: inline;
   font-size: .9em;
   margin: 0 20px;
 }
