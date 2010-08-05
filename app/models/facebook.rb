@@ -24,7 +24,6 @@ class Facebook < ActiveRecord::Base
     def identify(fb_user)
       _fb_user_ = find_or_initialize_by_identifier(fb_user.identifier)
       _fb_user_.access_token = fb_user.access_token.token
-      _fb_user_.expires_in = fb_user.access_token.expires_in
       _fb_user_.save!
       _fb_user_
     end

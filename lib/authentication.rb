@@ -1,5 +1,7 @@
 module Authentication
 
+  class Unauthorized < StandardError; end
+
   def self.included(base)
     base.send(:include, Authentication::HelperMethods)
     base.send(:include, Authentication::ControllerMethods)
@@ -22,12 +24,13 @@ module Authentication
   module ControllerMethods
 
     def require_authentication
-      authenticate Facebook.find(session[:current_user])
-    rescue ActiveRecord::RecordNotFound => e
-      redirect_to root_url
+      authenticate Facebook.find_by_id(session[:current_user])
+    rescue Unauthorized => e
+      redirect_to root_url and return false
     end
 
     def authenticate(user)
+      raise Unauthorized unless user
       session[:current_user] = user.id
     end
 

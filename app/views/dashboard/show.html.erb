@@ -1,7 +1,7 @@
 <h2>Hello <fb:name uid="<%= current_user.identifier %>" useyou="false"></fb:name>!</h2>
 
 <ul class="timeline">
-  <% current_user.profile.home.each do |post| %>
+  <% @posts.each do |post| %>
     <li class="post clearfix">
       <div class="avatar">
         <fb:profile-pic uid="<%= post.from.identifier %>" size="square"></fb:profile-pic>
