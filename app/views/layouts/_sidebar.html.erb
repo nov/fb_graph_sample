@@ -2,10 +2,13 @@
   <fb:profile-pic uid="<%= current_user.try(:identifier) %>" size="normal" facebook-logo="true"></fb:profile-pic>
 </div>
 
-<dl>
-  <dt>JavaScript SDK</dt>
-  <dd><fb:login-button length="long" autologoutlink="true" perms="<%= Facebook.config[:perms] %>"></fb:login-button></dd>
-  <dt>Normal OAuth flow</dt>
-  <dd><%= link_to image_tag('http://developers.facebook.com/images/devsite/login-button.png'), new_facebook_path %></dd>
-</dl>
-
+<% if authenticated? %>
+  <p><%= link_to "Logout", facebook_path, :method => :delete %></p>
+<% else %>
+  <dl>
+    <dt>JavaScript SDK</dt>
+    <dd><fb:login-button length="long" onlogin="location.href = '<%= facebook_path %>'" perms="<%= Facebook.config[:perms] %>"></fb:login-button></dd>
+    <dt>Normal OAuth flow</dt>
+    <dd><%= link_to "Start", new_facebook_path %></dd>
+  </dl>
+<% end %>

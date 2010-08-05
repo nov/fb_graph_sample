@@ -3,7 +3,7 @@
   <head>
     <title>FbGraphSample</title>
     <%= stylesheet_link_tag :all %>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
     <%= javascript_include_tag :all %>
     <%= csrf_meta_tag %>
   </head>
@@ -33,15 +33,6 @@
         appId: "<%= Facebook.config[:client_id] %>",
         cookie: true,
         xfbml: true
-      });
-      FB.Event.subscribe('auth.sessionChange', function(response) {
-        if (response.session) {
-          // A user has logged in, and a new cookie has been saved
-          location.href = '<%= facebook_path %>';
-        } else {
-          // The user has logged out, and the cookie has been cleared
-          location.href = '<%= root_path %>';
-        }
       });
     </script>
     <script type="text/javascript">

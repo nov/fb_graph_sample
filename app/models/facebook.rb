@@ -2,9 +2,8 @@ class Facebook < ActiveRecord::Base
   extend ActiveSupport::Memoizable
 
   def profile
-    FbGraph::User.me(self.access_token).fetch
+    @profile ||= FbGraph::User.me(self.access_token).fetch
   end
-  memoize :profile
 
   class << self
     extend ActiveSupport::Memoizable
@@ -14,12 +13,10 @@ class Facebook < ActiveRecord::Base
     rescue => e
       raise StandardError.new("config/facebook.yml could not be loaded.")
     end
-    memoize :config
 
     def auth
       FbGraph::Auth.new config[:client_id], config[:client_secret]
     end
-    memoize :auth
 
     def identify(fb_user)
       _fb_user_ = find_or_initialize_by_identifier(fb_user.identifier)
