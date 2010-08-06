@@ -9,8 +9,9 @@ class Facebook < ActiveRecord::Base
     extend ActiveSupport::Memoizable
 
     def config
-      @config ||= if ENV['fb_client_id'] && ENV['fb_client_secret']
+      @config ||= if ENV['fb_app_id'] && ENV['fb_client_id'] && ENV['fb_client_secret']
         {
+          :app_id        => ENV['fb_app_id'],
           :client_id     => ENV['fb_client_id'],
           :client_secret => ENV['fb_client_secret']
         }
