@@ -3,9 +3,9 @@
   <head>
     <title>FbGraphSample</title>
     <meta property="fb:app_id" content="<%= Facebook.config[:app_id] %>" />
-    <%= stylesheet_link_tag :all %>
+    <%= stylesheet_link_tag :all, :cache => true %>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
-    <%= javascript_include_tag :all %>
+    <%= javascript_include_tag :all, :cache => true %>
     <%= csrf_meta_tag %>
   </head>
   <body>
