@@ -10,7 +10,10 @@ class Facebook < ActiveRecord::Base
 
     def config
       @config ||= YAML.load_file("#{Rails.root}/config/facebook.yml")[Rails.env].symbolize_keys
-    rescue => e
+    rescue Errno::ENOENT => e
+      # API key in this stub file is setup only for localhost:3000
+      @config ||= YAML.load_file("#{Rails.root}/config/facebook.yml.stub")[Rails.env].symbolize_keys
+    rescue Errno::ENOENT => e
       raise StandardError.new("config/facebook.yml could not be loaded.")
     end
 
