@@ -9,11 +9,12 @@ class Facebook < ActiveRecord::Base
     extend ActiveSupport::Memoizable
 
     def config
-      @config ||= if ENV['fb_app_id'] && ENV['fb_client_id'] && ENV['fb_client_secret']
+      @config ||= if ENV['fb_app_id'] && ENV['fb_client_id'] && ENV['fb_client_secret'] && ENV['fb_perms']
         {
           :app_id        => ENV['fb_app_id'],
           :client_id     => ENV['fb_client_id'],
-          :client_secret => ENV['fb_client_secret']
+          :client_secret => ENV['fb_client_secret'],
+          :perms         => ENV['fb_perms']
         }
       else
         YAML.load_file("#{Rails.root}/config/facebook.yml")[Rails.env].symbolize_keys
