@@ -9,10 +9,14 @@ class Facebook < ActiveRecord::Base
     extend ActiveSupport::Memoizable
 
     def config
-      @config ||= YAML.load_file("#{Rails.root}/config/facebook.yml")[Rails.env].symbolize_keys
-    rescue Errno::ENOENT => e
-      # API key in this stub file is setup only for localhost:3000
-      @config ||= YAML.load_file("#{Rails.root}/config/facebook.yml.stub")[Rails.env].symbolize_keys
+      @config ||= if ENV['fb_client_id'] && ENV['fb_client_secret']
+        {
+          :client_id     => ENV['fb_client_id'],
+          :client_secret => ENV['fb_client_secret']
+        }
+      else
+        YAML.load_file("#{Rails.root}/config/facebook.yml")[Rails.env].symbolize_keys
+      end
     rescue Errno::ENOENT => e
       raise StandardError.new("config/facebook.yml could not be loaded.")
     end
