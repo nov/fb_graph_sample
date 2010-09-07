@@ -1,9 +1,9 @@
 class SubscriptionsController < ApplicationController
   def show
-    render :text => params.inspect
+    render :text => params[:'hub.challenge']
   end
 
   def create
-    render :text => params[:'hub.challenge']
+    render :nothing => true, :status => 205
   end
 end
