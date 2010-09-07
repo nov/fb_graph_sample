@@ -3,6 +3,8 @@ FbGraphSample::Application.routes.draw do
     get :callback, :to => :create
   end
 
+  resource :subscription
+
   get 'dashboard' => 'dashboard#show'
 
   root :to => 'top#index'

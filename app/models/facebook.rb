@@ -1,6 +1,9 @@
 class Facebook < ActiveRecord::Base
   extend ActiveSupport::Memoizable
 
+  # validates_format_of :access_token, :with => /^access:/, :allow_blank => true
+  validates_format_of :access_token, :with => /^access:/, :if => Proc.new {|t| !t.access_token.blank?}
+
   def profile
     @profile ||= FbGraph::User.me(self.access_token).fetch
   end
@@ -28,6 +31,7 @@ class Facebook < ActiveRecord::Base
     end
 
     def identify(fb_user)
+      puts fb_user.access_token.token
       _fb_user_ = find_or_initialize_by_identifier(fb_user.identifier)
       _fb_user_.access_token = fb_user.access_token.token
       _fb_user_.save!
