@@ -1,5 +1,4 @@
 class Facebook < ActiveRecord::Base
-  extend ActiveSupport::Memoizable
 
   def profile
     @profile ||= FbGraph::User.me(self.access_token).fetch
