@@ -28,7 +28,7 @@ class FacebooksController < ApplicationController
   end
 
   def destroy
-    current_user.destroy
+    unauthenticate
     redirect_to root_url
   end
 

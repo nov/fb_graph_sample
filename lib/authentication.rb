@@ -34,6 +34,11 @@ module Authentication
       session[:current_user] = user.id
     end
 
+    def unauthenticate
+      current_user.destroy
+      @current_user = session[:current_user] = nil
+    end
+
   end
 
 end
