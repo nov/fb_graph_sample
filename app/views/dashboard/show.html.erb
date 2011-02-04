@@ -1,4 +1,12 @@
 <h2>Hello <fb:name uid="<%= current_user.identifier %>" useyou="false"></fb:name>!</h2>
+<a href="#" id="app_request">App Request</a>
+<script>
+$(function () {
+  $('#app_request').click(
+    FB.ui({method: 'apprequests', message: 'You should learn more about this awesome game.', data: 'tracking information for the user'});
+  );
+});
+</script>
 
 <ul class="timeline">
   <% @posts.each do |post| %>
