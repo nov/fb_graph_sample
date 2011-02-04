@@ -2,7 +2,7 @@ development: &defaults
   app_id: 117950878254050
   client_id: b970b24f039c62ef51059ab1029d103f
   client_secret: 939b5e2ef40b1e58cad08b4416f21337
-  perms: read_stream,publish_stream,offline_access,manage_pages,user_checkins,friends_checkins,user_photos,read_insights,user_interests,user_hometown,user_groups,user_events,user_education_history,user_birthday,user_activities,publish_checkins,user_address,user_mobile_phone
+  perms: read_stream,publish_stream,offline_access,manage_pages,user_checkins,friends_checkins,user_photos,read_insights,user_interests,user_hometown,user_groups,user_events,user_education_history,user_birthday,user_activities,publish_checkins
 
 test:
   <<: *defaults
