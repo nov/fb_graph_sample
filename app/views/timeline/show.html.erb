@@ -10,7 +10,7 @@
       </div>
       <p>
         <strong><fb:name uid="<%= post.from.identifier %>"></fb:name></strong>
-        <%= post.message || post.caption || post.description || post.name %>
+        <%= post.message || post.name || post.caption || post.description %>
       </p>
     </article>
   <% end %>
