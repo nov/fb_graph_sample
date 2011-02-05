@@ -1,0 +1,57 @@
+/*-----------------]: base :[---------------------*/
+
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Verdana;
+  color: #333;
+  background: #FFFCF5 url('/images/body_back.png') repeat-x left -60px;
+}
+h1,
+h2,
+h3 {
+  color: #555;
+}
+h1 {
+  font-size: 30px;
+}
+h2 {
+  font-size: 24px;
+}
+h3 {
+  font-size: 18px;
+}
+a {
+  color: #0084B4;
+  text-decoration: none;
+}
+a:hover {
+  color: #57B6DD;
+  text-decoration: underline;
+}
+p {
+  font-size: 15px;
+  margin: 10px;
+}
+ul {
+  list-style: none;
+}
+ol {
+  padding-left: 20px;
+}
+dt {
+  font-weight: bolder;
+}
+dd {
+  margin: .5px 0 10px 10px;
+}
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}

@@ -1,0 +1,45 @@
+/*-----------------]: layout :[---------------------*/
+
+body > h1 {
+  text-align: center;
+  padding: 42px;
+  height: 35px;
+  background: url('/images/header_back.png') repeat-x top left;
+}
+body > h1 a,
+body > h1 a:hover {
+  color: #FFF;
+}
+body > .container {
+  width: 800px;
+  margin: 60px auto 0;
+}
+body > .container .main {
+  float: left;
+  width: 470px;
+  min-height: 400px;
+}
+body > .container .sidebar {
+  float: right;
+  text-align: center;
+  width: 300px;
+}
+body > .container img {
+  border: 1px solid #ddd;
+}
+body > .container .sidebar p,
+body > .container .sidebar dl {
+  text-align: left;
+  padding-left: 50px;
+}
+body > footer {
+  clear: both;
+  color: #C1B49A;
+  text-align: center;
+  height: 17px;
+  padding: 85px 0 20px;
+  background: #333 url("/images/footer_back.png") repeat-x;
+}
+body > footer a {
+  color: #AEDEE4;
+}

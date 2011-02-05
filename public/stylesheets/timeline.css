@@ -1,0 +1,23 @@
+/*-----------------]: timeline :[---------------------*/
+
+.timeline form {
+  text-align: right;
+}
+.timeline textarea {
+  font-size: 15px;
+  min-width: 460px;
+  min-height: 40px;
+  padding: 6px;
+}
+.timeline article {
+  margin: 20px 0;
+}
+.timeline article p {
+  float: right;
+  width: 410px;
+  margin: 0;
+}
+.timeline article .avatar {
+  float: left;
+  width: 50px;
+}

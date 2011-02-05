@@ -1,0 +1,17 @@
+<section class="timeline">
+  <% form_tag timeline_path do %>
+    <%= text_area_tag :message, nil, :placeholder => 'Message here.' %>
+    <%= submit_tag 'Update', :disable_with => 'Updating...' %>
+  <% end %>
+  <% @posts.each do |post| %>
+    <article class="clearfix">
+      <div class="avatar">
+        <fb:profile-pic uid="<%= post.from.identifier %>" size="square"></fb:profile-pic>
+      </div>
+      <p>
+        <strong><fb:name uid="<%= post.from.identifier %>"></fb:name></strong>
+        <%= post.message || post.caption || post.description %>
+      </p>
+    </article>
+  <% end %>
+</section>

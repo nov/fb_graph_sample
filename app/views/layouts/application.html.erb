@@ -2,35 +2,29 @@
 <html xmlns:fb="http://www.facebook.com/2008/fbml">
   <head>
     <title>FbGraphSample</title>
-    <meta property="fb:app_id" content="<%= Facebook.config[:app_id] %>" />
-    <%= stylesheet_link_tag :all %>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
-    <%= javascript_include_tag :all %>
-    <%= csrf_meta_tag %>
+    <meta property="fb:app_id" content="<%= Facebook.config[:app_id] %>">
     <!--[if IE]>
     <script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <%= stylesheet_link_tag 'base', 'layout', 'gritter', controller_name %>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
+    <%= javascript_include_tag :all %>
+    <%= csrf_meta_tag %>
   </head>
   <body>
     <div id="fb-root"></div>
+    <h1><%= link_to "FbGraph Sample", root_path %></h1>
     <div class="container">
-      <header class="container">
-        <h1>FbGraph Sample</h1>
-      </header>
-      <div class="main clearfix">
-        <section>
-          <%= yield %>
-        </section>
-        <aside>
-          <%= render :partial => 'layouts/sidebar' %>
-        </aside>
+      <div class="main">
+        <%= yield %>
       </div>
-      <footer>
-        <nav>
-          <p class="copytight">&copy; 2010 <a href="http://github.com/nov">nov matake</a></p>
-        </nav>
-      </footer>
+      <aside class="sidebar">
+        <%= render :partial => 'layouts/sidebar' %>
+      </aside>
     </div>
+    <footer>
+      <small class="copytight">&copy; 2010 <a href="http://github.com/nov">nov matake</a></small>
+    </footer>
     <script src="http://connect.facebook.net/en_US/all.js"></script>
     <script>
       FB.init({

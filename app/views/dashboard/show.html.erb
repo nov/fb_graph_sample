@@ -1,5 +1,26 @@
-<h2>Hello <fb:name uid="<%= current_user.identifier %>" useyou="false"></fb:name>!</h2>
-<a href="#" id="app_request">App Request</a>
+<section class='dashboard'>
+  <h2>Hello <fb:name uid='<%= current_user.identifier %>' useyou='false'></fb:name>!</h2>
+  <article>
+    <h3><%= link_to 'Profile Details', '#' %></h3>
+    <p>Coming soon...</p>
+  </article>
+  <article>
+    <h3><%= link_to 'Timeline (News Feed)', timeline_path %></h3>
+    <p>Show your timeline and update status.</p>
+  </article>
+  <article>
+    <h3><%= link_to 'Subscription', subscription_path %></h3>
+    <p>Subscribe your user's activity.</p>
+    <p>This functionality is for developers, not for end-users.</p>
+    <p>This page won't return any content to your browsers, since this endpoint is designed to respond to subscription verification request from facebook.com</p>
+  </article>
+  <article>
+    <h3><%= link_to 'App Request', '#', :id => :app_request %></h3>
+    <p>Send application requests to your friends.</p>
+    <p>This functionality is for iframe applications running on apps.facebook.com domain.</p>
+  </article>
+</nav>
+
 <script>
 $(function () {
   $('#app_request').click(function () {
@@ -11,15 +32,3 @@ $(function () {
   });
 });
 </script>
-
-<ul class="timeline">
-  <% @posts.each do |post| %>
-    <li class="post clearfix">
-      <div class="avatar">
-        <fb:profile-pic uid="<%= post.from.identifier %>" size="square"></fb:profile-pic>
-      </div>
-      <strong><fb:name uid="<%= post.from.identifier %>"></fb:name></strong>
-      <%= post.message || post.caption || post.description %>
-    </li>
-  <% end %>
-</ul>
