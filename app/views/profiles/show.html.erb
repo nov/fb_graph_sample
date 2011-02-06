@@ -1,0 +1,88 @@
+<section class="profile">
+  <h2>User Profile</h2>
+  <dl>
+    <dt>Name</dt>
+    <dd><%= current_user.profile.name %></dd>
+    <dt>First Name</dt>
+    <dd><%= current_user.profile.first_name %></dd>
+    <dt>Last Name</dt>
+    <dd><%= current_user.profile.last_name %></dd>
+    <dt>Gender</dt>
+    <dd><%= current_user.profile.gender %></dd>
+    <dt>Link</dt>
+    <dd><%= link_to current_user.profile.link, current_user.profile.link %></dd>
+    <dt>Email</dt>
+    <dd><%= current_user.profile.email %></dd>
+    <dt>About</dt>
+    <dd><%= current_user.profile.about %></dd>
+    <dt>Birthday</dt>
+    <dd><%= current_user.profile.birthday %></dd>
+    <dt>Work</dt>
+    <% current_user.profile.work.each do |work| %>
+      <dd>
+        <article>
+          <header>
+            <h3><%= work.employer.name %></h3>
+            <p><%= work.start_date %> - <%= work.end_date || 'Current' %></p>
+          </header>
+          <p><%= work.position.name %></p>
+        </article>
+      </dd>
+    <% end %>
+    <dt>Education</dt>
+    <% current_user.profile.education.each do |education| %>
+      <dd>
+        <article>
+          <h3><%= education.school.name %></h3>
+          <p><%= education.type %></p>
+        </article>
+      </dd>
+    <% end %>
+    <dt>Website</dt>
+    <% current_user.profile.websites.each do |website| %>
+      <dd><%= link_to website, website %></dd>
+    <% end %>
+    <dt>Hometown</dt>
+    <dd><%= current_user.profile.hometown.try(:name) %></dd>
+    <dt>Location</dt>
+    <dd><%= current_user.profile.location.try(:name) %></dd>
+    <dt>Bio</dt>
+    <dd><%= current_user.profile.bio %></dd>
+    <dt>Quotes</dt>
+    <dd><%= current_user.profile.quotes %></dd>
+    <dt>Interested in</dt>
+    <dd><%= current_user.profile.interested_in.join(', ') %></dd>
+    <dt>Meeting for</dt>
+    <dd><%= current_user.profile.meeting_for.join(', ') %></dd>
+    <dt>Relationship Status</dt>
+    <dd><%= current_user.profile.relationship_status %></dd>
+    <dt>Religion</dt>
+    <dd><%= current_user.profile.religion %></dd>
+    <dt>Political</dt>
+    <dd><%= current_user.profile.political %></dd>
+    <dt>Verified</dt>
+    <dd><%= current_user.profile.verified %></dd>
+    <dt>Significant Other</dt>
+    <dd><%= current_user.profile.significant_other.try(:name) %></dd>
+    <dt>Timezone</dt>
+    <dd><%= current_user.profile.timezone %></dd>
+    <dt>Locale</dt>
+    <dd><%= current_user.profile.locale %></dd>
+    <dt>Languages</dt>
+    <dd><%= current_user.profile.languages.collect(&:name).join(', ') %></dd>
+    <dt>Sports</dt>
+    <dd><%= current_user.profile.sports.collect(&:name).join(', ') %></dd>
+    <dt>Favorite Teams</dt>
+    <dd><%= current_user.profile.favorite_teams.collect(&:name).join(', ') %></dd>
+    <dt>Inspirational People</dt>
+    <dd><%= current_user.profile.inspirational_people.collect(&:name).join(', ') %></dd>
+    <dt>Update Time</dt>
+    <dd><%= current_user.profile.updated_time %></dd>
+    <dt>Third Party ID</dt>
+    <dd><%= current_user.profile.third_party_id %></dd>
+    <dt>Pending.. (temporary disabled by facebook)</dt>
+    <% [:address, :mobile_phone].each do |attribute| %>
+      <dd><%= attribute %></dd>
+    <% end %>
+  </dl>
+</section>

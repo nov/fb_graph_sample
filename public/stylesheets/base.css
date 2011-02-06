@@ -42,10 +42,21 @@ ol {
   padding-left: 20px;
 }
 dt {
+  color: #555;
   font-weight: bolder;
+  margin-bottom: 5px;
 }
 dd {
-  margin: .5px 0 10px 10px;
+  margin: 5px 0 10px 10px;
+}
+article,
+aside,
+footer,
+header,
+hgroup,
+nav,
+section {
+  display: block;
 }
 .clearfix:after {
   content: ".";

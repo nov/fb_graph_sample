@@ -1,8 +1,8 @@
 <section class='dashboard'>
   <h2>Hello <fb:name uid='<%= current_user.identifier %>' useyou='false'></fb:name>!</h2>
   <article>
-    <h3><%= link_to 'Profile Details', '#' %></h3>
-    <p>Coming soon...</p>
+    <h3><%= link_to 'Profile Details', profile_path %></h3>
+    <p>User profile.</p>
   </article>
   <article>
     <h3><%= link_to 'Timeline (News Feed)', timeline_path %></h3>
