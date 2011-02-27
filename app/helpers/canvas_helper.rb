@@ -1,0 +1,2 @@
+module CanvasHelper
+end
