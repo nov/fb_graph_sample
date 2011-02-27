@@ -1,5 +1,5 @@
 class CanvasController < ApplicationController
-  def show
+  def create
     render :text => params.inspect
   end
 end
