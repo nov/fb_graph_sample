@@ -4,6 +4,7 @@ FbGraphSample::Application.routes.draw do
   end
 
   resource :dashboard, :only => :show
+  resource :canvas, :only => :show
   resource :profile, :only => :show
   resource :timeline, :only => [:show, :create]
   resource :subscription, :only => [:show, :create]
