@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:fb="http://www.facebook.com/2008/fbml">
+  <head>
+    <title>FbGraphSample</title>
+    <meta property="fb:app_id" content="<%= Facebook.config[:app_id] %>">
+    <!--[if IE]>
+    <script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <%= stylesheet_link_tag 'base' %>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
+    <%= javascript_include_tag 'rails' %>
+    <%= csrf_meta_tag %>
+  </head>
+  <body>
+    <div id="fb-root"></div>
+    <div class="container">
+      <div class="main">
+        <%= yield %>
+      </div>
+    </div>
+    <footer>
+      <small class="copytight">&copy; 2010 <a href="http://github.com/nov">nov matake</a></small>
+    </footer>
+    <script src="http://connect.facebook.net/en_US/all.js"></script>
+    <script>
+      FB.init({
+        appId: "<%= Facebook.config[:client_id] %>",
+        cookie: true,
+        xfbml: true
+      });
+    </script>
+  </body>
+</html>
