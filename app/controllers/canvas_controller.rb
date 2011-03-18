@@ -2,8 +2,7 @@ class CanvasController < ApplicationController
   layout false
 
   def show
-    render :text => javascript_tag("top.location.href = 'http://localhost';")
-    # render :text => 'Thanks for your authorization!'
+    render :text => 'Thanks for your authorization!'
   end
 
   def create
