@@ -1,17 +1,18 @@
 class CanvasController < ApplicationController
+  layout false
+
   def show
-    render :text => 'Thanks for your authorization!'
+    render :text => javascript_tag("top.location.href = 'http://localhost';")
+    # render :text => 'Thanks for your authorization!'
   end
 
   def create
-    auth = Facebook.auth.from_signed_request(params[:signed_request])
-    if auth.authorized?
-      user = auth.user.fetch
-      render :text => "Hello #{user.name}!"
+    @auth = Facebook.auth.from_signed_request(params[:signed_request])
+    if @auth.authorized?
+      authenticate @auth.user
+      render :show
     else
-      render :text => javascript_tag <<-JS
-        top.location.href = "#{auth.authorize_uri(canvas_url)}";
-      JS
+      render :authorize
     end
   end
 end
