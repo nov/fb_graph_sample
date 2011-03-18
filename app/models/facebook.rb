@@ -23,7 +23,7 @@ class Facebook < ActiveRecord::Base
     end
 
     def auth
-      FbGraph::Auth.new config[:client_id], config[:client_secret]
+      FbGraph::Auth.new config[:app_id], config[:client_secret]
     end
 
     def identify(fb_user)
