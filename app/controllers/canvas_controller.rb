@@ -5,7 +5,7 @@ class CanvasController < ApplicationController
       user = auth.user.fetch
       render :text => "Hello #{user.name}!"
     else
-      render :text => "Hello Anonymous!"
+      redirect_to auth.authorize_uri(canvas_url)
     end
   end
 end
