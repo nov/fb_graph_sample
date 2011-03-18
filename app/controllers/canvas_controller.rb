@@ -2,7 +2,7 @@ class CanvasController < ApplicationController
   layout false
 
   def show
-    render :text => 'Thanks for your authorization!'
+    redirect_to 'http://apps.facebook.com/fbgraphsample/'
   end
 
   def create
