@@ -9,7 +9,7 @@ class CanvasController < ApplicationController
       user = auth.user.fetch
       render :text => "Hello #{user.name}!"
     else
-      render :js => <<-JS
+      render :text => javascript_tag <<-JS
         top.location.href = "#{auth.authorize_uri(canvas_url)}";
       JS
     end
