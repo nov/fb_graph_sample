@@ -39,9 +39,7 @@
       </dd>
     <% end %>
     <dt>Website</dt>
-    <% current_user.profile.websites.each do |website| %>
-      <dd><%= link_to website, website %></dd>
-    <% end %>
+    <dd><%= auto_link current_user.website %></dd>
     <dt>Hometown</dt>
     <dd><%= current_user.profile.hometown.try(:name) %></dd>
     <dt>Location</dt>
