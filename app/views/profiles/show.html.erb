@@ -39,7 +39,7 @@
       </dd>
     <% end %>
     <dt>Website</dt>
-    <dd><%= auto_link current_user.website %></dd>
+    <dd><%= auto_link current_user.profile.website %></dd>
     <dt>Hometown</dt>
     <dd><%= current_user.profile.hometown.try(:name) %></dd>
     <dt>Location</dt>
