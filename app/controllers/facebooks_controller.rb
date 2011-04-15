@@ -1,3 +1,5 @@
+require 'rack/oauth2'
+
 class FacebooksController < ApplicationController
   before_filter :require_authentication, :only => :destroy
 
@@ -10,18 +12,15 @@ class FacebooksController < ApplicationController
 
   # handle Normal OAuth flow: start
   def new
-    redirect_to Facebook.auth.client.web_server.authorize_url(
-      :redirect_uri => callback_facebook_url,
+    redirect_to client.authorization_uri(
       :scope => Facebook.config[:perms]
     )
   end
 
   # handle Normal OAuth flow: callback
   def create
-    access_token = Facebook.auth.client.web_server.get_access_token(
-      params[:code],
-      :redirect_uri => callback_facebook_url
-    )
+    client.authorization_code = params[:code]
+    access_token = client.access_token![:access_token]
     user = FbGraph::User.me(access_token).fetch
     authenticate Facebook.identify(user)
     redirect_to dashboard_url
@@ -30,6 +29,18 @@ class FacebooksController < ApplicationController
   def destroy
     unauthenticate
     redirect_to root_url
+  end
+
+  private
+
+  def client
+    @client ||= Rack::OAuth2::Client.new(
+      :identifier => Facebook.config[:client_id],
+      :secret => Facebook.config[:client_secret],
+      :redirect_uri => callback_facebook_url,
+      :authorization_endpoint => 'https://www.facebook.com/dialog/oauth',
+      :token_endpoint => 'https://graph.facebook.com/oauth/access_token'
+    )
   end
 
 end
