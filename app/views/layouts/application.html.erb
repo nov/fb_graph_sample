@@ -2,7 +2,7 @@
 <html xmlns:fb="http://www.facebook.com/2008/fbml">
   <head>
     <title>FbGraphSample</title>
-    <meta property="fb:app_id" content="<%= Facebook.config[:app_id] %>">
+    <meta property="fb:app_id" content="<%= Facebook.config[:client_id] %>">
     <!--[if IE]>
     <script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -28,7 +28,7 @@
     <script src="http://connect.facebook.net/en_US/all.js"></script>
     <script>
       FB.init({
-        appId: "<%= Facebook.config[:app_id] %>",
+        appId: "<%= Facebook.config[:client_id] %>",
         cookie: true,
         xfbml: true
       });
