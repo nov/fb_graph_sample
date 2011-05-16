@@ -88,6 +88,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  fb_graph (>= 1.8.0)
+  fb_graph
   rails (= 3.0.6)
   sqlite3-ruby
