@@ -1,10 +1,14 @@
 <section class="profile">
   <h2>User Profile</h2>
   <dl>
+    <dt>Username</dt>
+    <dd><%= current_user.profile.username %></dd>
     <dt>Name</dt>
     <dd><%= current_user.profile.name %></dd>
     <dt>First Name</dt>
     <dd><%= current_user.profile.first_name %></dd>
+    <dt>Middle Name</dt>
+    <dd><%= current_user.profile.middle_name %></dd>
     <dt>Last Name</dt>
     <dd><%= current_user.profile.last_name %></dd>
     <dt>Gender</dt>
@@ -50,8 +54,6 @@
     <dd><%= current_user.profile.quotes %></dd>
     <dt>Interested in</dt>
     <dd><%= current_user.profile.interested_in.join(', ') %></dd>
-    <dt>Meeting for</dt>
-    <dd><%= current_user.profile.meeting_for.join(', ') %></dd>
     <dt>Relationship Status</dt>
     <dd><%= current_user.profile.relationship_status %></dd>
     <dt>Religion</dt>
