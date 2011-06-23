@@ -29,7 +29,7 @@
             <h3><%= work.employer.name %></h3>
             <p><%= work.start_date %> - <%= work.end_date || 'Current' %></p>
           </header>
-          <p><%= work.position.name %></p>
+          <p><%= work.position.try(:name) %></p>
         </article>
       </dd>
     <% end %>
