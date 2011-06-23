@@ -1,12 +1,17 @@
 <%= form_for Subscription.new, :url => subscriptions_path do |f| %>
-  <div>
+  <p>
     <%= f.label :object %>
     <%= f.select :object, [:user, :permissions, :page] %>
-  </div>
-  <div>
+  </p>
+  <p>
     <%= f.label :fields %>
     <%= f.text_field :fields, :placeholder => 'field1, field2, ..' %>
-  </div>
+  </p>
   <%= f.submit %>
+  <aside>
+    <h3>NOTE</h3>
+    <p>You'll need at least 2 server process running.</p>
+    <p>This sample app on heroku.com has only 1 process running.</p>
+    <p>Please setup your server to test subscriptions.</p>
+  </aside>
 <% end %>
-
