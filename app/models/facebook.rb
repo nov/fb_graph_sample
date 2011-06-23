@@ -1,4 +1,5 @@
 class Facebook < ActiveRecord::Base
+  has_many :subscriptions
 
   def profile
     @profile ||= FbGraph::User.me(self.access_token).fetch
@@ -19,6 +20,10 @@ class Facebook < ActiveRecord::Base
       end
     rescue Errno::ENOENT => e
       raise StandardError.new("config/facebook.yml could not be loaded.")
+    end
+
+    def app
+      FbGraph::Application.new config[:client_id], :secret => config[:client_secret]
     end
 
     def auth

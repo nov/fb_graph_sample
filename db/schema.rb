@@ -10,11 +10,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100805043508) do
+ActiveRecord::Schema.define(:version => 20110623075710) do
 
   create_table "facebooks", :force => true do |t|
     t.string   "identifier",   :limit => 20
     t.string   "access_token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "subscriptions", :force => true do |t|
+    t.integer  "facebook_id"
+    t.string   "object"
+    t.string   "fields"
+    t.string   "verify_token"
+    t.text     "history_json"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

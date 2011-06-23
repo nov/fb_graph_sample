@@ -1,0 +1,11 @@
+<article>
+  <h2><%= subscription.object %></h2>
+  <p><%= subscription.fields %></p>
+  <ul>
+    <% subscription.history.each do |update| %>
+      <li>
+        <pre><%= JSON.pretty_generate update %></pre>
+      </li>
+    <% end %>
+  </ul>
+</article>

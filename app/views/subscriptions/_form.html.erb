@@ -1,0 +1,12 @@
+<%= form_for Subscription.new, :url => subscriptions_path do |f| %>
+  <div>
+    <%= f.label :object %>
+    <%= f.select :object, [:user, :permissions, :page] %>
+  </div>
+  <div>
+    <%= f.label :fields %>
+    <%= f.text_field :fields, :placeholder => 'field1, field2, ..' %>
+  </div>
+  <%= f.submit %>
+<% end %>
+
