@@ -17,7 +17,7 @@ class SubscriptionsController < ApplicationController
   def create
     subscription = current_user.subscriptions.build(params[:subscription])
     if subscription.save
-      subscription.subscribe! subscription_url(subscription)
+      subscription.subscribe! subscription_url(:id => subscription, :_method => :PUT)
     else
       flash[:error] = {
         :title   => 'Invalid',
