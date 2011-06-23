@@ -7,7 +7,7 @@ class SubscriptionsController < ApplicationController
   # for Subscription Verification
   def show
     subscription = Subscription.find(params[:id])
-    if subscription.verify_token == params[:'hub.verify_token'] || :skip_verification!
+    if subscription.verify_token == params[:'hub.verify_token']
       render :text => params[:'hub.challenge']
     else
       render :text => 'verify_token invalid', :status => 401
