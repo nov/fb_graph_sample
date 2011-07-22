@@ -15,6 +15,13 @@ class CreditsController < ApplicationController
         :method => "payments_get_items"
       }
     when 'payments_status_update'
+      logger.info {
+        :content => [{
+          :order_id => order[:order_id],
+          :status => :settled
+        }],
+        :method => "payments_status_update"
+      }.to_json
       render :json => {
         :content => [{
           :order_id => order[:order_id],
