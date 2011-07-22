@@ -1,8 +1,7 @@
 class CreditsController < ApplicationController
   def create
-    # TODO
     req = Facebook.auth.from_signed_request(params[:signed_request])
-    logger.info req.data[:credits]
+    logger.info req.data[:credits], params[:method]
     case params[:method]
     when 'payments_get_items'
       render :json => {
@@ -16,6 +15,7 @@ class CreditsController < ApplicationController
         :method => "payments_get_items"
       }
     when 'payments_status_update'
+      # TODO
       render :nothing => true
     end
   end
