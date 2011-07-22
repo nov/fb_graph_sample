@@ -15,10 +15,10 @@ class CreditsController < ApplicationController
       }
     when 'payments_status_update'
       {
-        :content => [{
+        :content => {
           :order_id => order[:order_id],
           :status => :settled
-        }]
+        }
       }
     end
     res[:method] = params[:method]
