@@ -1,23 +1,20 @@
 class CreditsController < ApplicationController
   def create
     req = Facebook.auth.from_signed_request(params[:signed_request])
-    logger.info req.data[:credits]
-    logger.info params[:method]
     case params[:method]
     when 'payments_get_items'
       render :json => {
         :content => [{
-          :title => "[Test Mode] Unicorn",
-          :description => "[Test Mode] Own your own mythical beast!",
-          :price => 2,
-          :image_url => "http://www.facebook.com/images/gifts/21.png",
+          :title       => "Donation to fb_graph",
+          :description => "Thanks for your donation!",
+          :price       => 2,
+          :image_url   => "http://www.facebook.com/images/gifts/21.png",
           :product_url => "http://www.facebook.com/images/gifts/21.png"
         }],
         :method => "payments_get_items"
       }
     when 'payments_status_update'
-      # TODO
-      render :nothing => true
+      render :text => :settled
     end
   end
 end
