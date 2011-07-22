@@ -14,7 +14,7 @@ class CreditsController < ApplicationController
         :method => "payments_get_items"
       }
     when 'payments_status_update'
-      render :text => :settled
+      render :text => 'settled'
     end
   end
 end
