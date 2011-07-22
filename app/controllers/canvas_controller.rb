@@ -1,5 +1,4 @@
 class CanvasController < ApplicationController
-
   def show
     redirect_to 'http://apps.facebook.com/fbgraphsample/'
   end

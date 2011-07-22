@@ -1,3 +1,19 @@
-<section class='canvas'>
+<article class='canvas'>
   <h2>Hello <fb:name uid='<%= current_user.identifier %>' useyou='false'></fb:name>!</h2>
-</nav>
+  <p>Try Facebook Credit?</p>
+  <nav>
+    <%= link_to 'Donate to fb_graph using Facebook Credit :)', '#', :class => 'pay_now' %>
+  </nav>
+</article>
+
+<script>
+  $(function () {
+    $('a.pay_now').click(function () {
+      FB.ui({
+        method: 'pay',
+        order_info: 'Donation to fb_graph'
+      });
+      return false;
+    });
+  });
+</script>
