@@ -1,9 +1,9 @@
 class CreditsController < ApplicationController
   def create
     # TODO
-    auth = Facebook.auth.from_signed_request(params[:signed_request])
-    transaction = auth.data[:credits]
-    case transaction[:method]
+    req = Facebook.auth.from_signed_request(params[:signed_request])
+    logger.info req.data[:credits]
+    case params[:method]
     when 'payments_get_items'
       render :json => {
         :content => [{
@@ -20,3 +20,13 @@ class CreditsController < ApplicationController
     end
   end
 end
+
+# {
+#     "signed_request" = >"...",
+#     "buyer" = >"579612276",
+#     "receiver" = >"579612276",
+#     "order_id" = >"207732695940804",
+#     "order_info" = >"\"Donation to fb_graph\"",
+#     "test_mode" = >"1",
+#     "method" = >"payments_get_items"
+# }
