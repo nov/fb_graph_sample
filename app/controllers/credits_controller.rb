@@ -2,9 +2,9 @@ class CreditsController < ApplicationController
   def create
     req = Facebook.auth.from_signed_request(params[:signed_request])
     order = req.data[:credits]
-    case params[:method]
+    res = case params[:method]
     when 'payments_get_items'
-      render :json => {
+      {
         :content => [{
           :title       => "Donation to fb_graph",
           :description => "Thanks for your donation!",
@@ -15,14 +15,7 @@ class CreditsController < ApplicationController
         :method => "payments_get_items"
       }
     when 'payments_status_update'
-      logger.info {
-        :content => [{
-          :order_id => order[:order_id],
-          :status => :settled
-        }],
-        :method => "payments_status_update"
-      }.to_json
-      render :json => {
+      {
         :content => [{
           :order_id => order[:order_id],
           :status => :settled
@@ -30,6 +23,8 @@ class CreditsController < ApplicationController
         :method => "payments_status_update"
       }
     end
+    logger.info res.to_json
+    render :json => res
   end
 end
 
