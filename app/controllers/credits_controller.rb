@@ -1,6 +1,7 @@
 class CreditsController < ApplicationController
   def create
     req = Facebook.auth.from_signed_request(params[:signed_request])
+    order = req.data[:credits]
     case params[:method]
     when 'payments_get_items'
       render :json => {
@@ -14,7 +15,13 @@ class CreditsController < ApplicationController
         :method => "payments_get_items"
       }
     when 'payments_status_update'
-      render :text => 'settled'
+      render :json => {
+        :content => [{
+          :order_id => order[:order_id],
+          :status => :settled
+        }],
+        :method => "payments_status_update"
+      }
     end
   end
 end
