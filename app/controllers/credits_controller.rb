@@ -11,18 +11,17 @@ class CreditsController < ApplicationController
           :price       => 2,
           :image_url   => "http://www.facebook.com/images/gifts/21.png",
           :product_url => "http://www.facebook.com/images/gifts/21.png"
-        }],
-        :method => "payments_get_items"
+        }]
       }
     when 'payments_status_update'
       {
         :content => [{
           :order_id => order[:order_id],
           :status => :settled
-        }],
-        :method => "payments_status_update"
+        }]
       }
     end
+    res[:method] = params[:method]
     logger.info res.to_json
     render :json => res
   end
