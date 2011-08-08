@@ -27,12 +27,3 @@ class CreditsController < ApplicationController
   end
 end
 
-# {
-#     "signed_request" = >"...",
-#     "buyer" = >"579612276",
-#     "receiver" = >"579612276",
-#     "order_id" = >"207732695940804",
-#     "order_info" = >"\"Donation to fb_graph\"",
-#     "test_mode" = >"1",
-#     "method" = >"payments_get_items"
-# }

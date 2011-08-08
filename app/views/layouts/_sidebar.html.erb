@@ -7,7 +7,7 @@
 <% else %>
   <dl>
     <dt>JavaScript SDK</dt>
-    <dd><fb:login-button length="long" onlogin="location.href = '<%= facebook_path %>'" perms="<%= Facebook.config[:perms] %>"></fb:login-button></dd>
+    <dd><fb:login-button length="long" onlogin="location.href = '<%= facebook_path %>'" scope="<%= Facebook.config[:scope] %>"></fb:login-button></dd>
     <dt>Normal OAuth flow</dt>
     <dd><%= link_to "Start", new_facebook_path %></dd>
   </dl>
