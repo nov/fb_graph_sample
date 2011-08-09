@@ -1,6 +1,6 @@
 class CanvasController < ApplicationController
   def show
-    redirect_to 'http://apps.facebook.com/fbgraphsample/'
+    redirect_to Facebook.config[:canvas_url]
   end
 
   def create

@@ -33,7 +33,7 @@ GEM
     builder (2.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
-    fb_graph (1.9.4)
+    fb_graph (1.9.5)
       httpclient (>= 2.2.0.2)
       rack-oauth2 (>= 0.8.0)
     httpclient (2.2.1)
