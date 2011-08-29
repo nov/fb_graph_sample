@@ -33,7 +33,7 @@ GEM
     builder (2.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
-    fb_graph (2.0.0)
+    fb_graph (2.0.1)
       httpclient (>= 2.2.0.2)
       rack-oauth2 (>= 0.8.0)
     httpclient (2.2.1)
@@ -85,7 +85,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  fb_graph (= 2.0.0)
+  fb_graph
   rails (= 3.0.6)
   rake (= 0.8.7)
   sqlite3-ruby
