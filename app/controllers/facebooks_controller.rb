@@ -14,6 +14,7 @@ class FacebooksController < ApplicationController
 
   # handle Normal OAuth flow: start
   def new
+    client = Facebook.auth(callback_facebook_url).client
     redirect_to client.authorization_uri(
       :scope => Facebook.config[:scope]
     )
@@ -21,6 +22,7 @@ class FacebooksController < ApplicationController
 
   # handle Normal OAuth flow: callback
   def create
+    client = Facebook.auth(callback_facebook_url).client
     client.authorization_code = params[:code]
     access_token = client.access_token!
     user = FbGraph::User.me(access_token).fetch
@@ -34,10 +36,6 @@ class FacebooksController < ApplicationController
   end
 
   private
-
-  def client
-    @client ||= Facebook.auth(callback_facebook_url).client
-  end
 
   def oauth2_error(e)
     flash[:error] = {
