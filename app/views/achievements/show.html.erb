@@ -1,0 +1,15 @@
+<% content_for :head do %>
+  <meta property="og:title" content="<%= @achievement.title %>">
+  <meta property="og:description" content="<%= @achievement.description %>">
+  <meta property="og:type" content="game.achievement">
+  <meta property="og:url" content="<%= achievement_url(@achievement) %>">
+  <meta property="og:image" content="<%= @achievement.image_url %>">
+  <meta property="og:points" content="<%= @achievement.points %>">
+  
+<% end %>
+
+<article>
+  <h2><%= @achievement.title %> - <%= @achievement.points %> [pts]</h2>
+  <p><%= @achievement.description %></p>
+  <%= image_tag @achievement.image_url %>
+</article>

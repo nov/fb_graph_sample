@@ -1,0 +1,19 @@
+<%= form_for @achievement do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+  <div>
+    <%= f.label :image_url, 'Image URL' %>
+    <%= f.url_field :image_url %>
+  </div>
+  <div>
+    <%= f.label :points, 'Points (0-100)' %>
+    <%= f.number_field :points %>
+  </div>
+  <%= f.submit %>
+<% end %>

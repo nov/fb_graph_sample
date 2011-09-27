@@ -2,6 +2,7 @@ FbGraphSample::Application.routes.draw do
   # Canvas App
   resource :canvas, :only => [:show, :create]
   resource :credit, :only => :create
+  resources :achievements, :only => [:index, :show, :new, :create]
 
   # Connect Site
   resource :facebook, :except => :create do

@@ -1,0 +1,11 @@
+<article>
+  <h2>Achievements</h2>
+  <ul>
+    <% @achievements.each do |achievement| %>
+      <li><%= link_to achievement.title, achievement_path(achievement) %></li>
+    <% end %>
+  </ul>
+  <nav>
+    <%= link_to 'Register new one', new_achievement_path %>
+  </nav>
+</article>
