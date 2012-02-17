@@ -1,12 +1,6 @@
-<%
-=begin
-%>
 <div class="avatar">
   <fb:profile-pic uid="<%= current_user.try(:identifier) %>" size="normal" facebook-logo="true"></fb:profile-pic>
 </div>
-<%
-=end
-%>
 
 <% if authenticated? %>
   <p><%= link_to "Logout", facebook_path, :method => :delete %></p>
@@ -19,10 +13,4 @@
   </dl>
 <% end %>
 
-<%
-=begin
-%>
 <fb:like-box profile_id="117513961602338" width="300" connections="6"></fb:like-box>
-<%
-=end
-%>
