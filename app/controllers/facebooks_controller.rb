@@ -24,7 +24,7 @@ class FacebooksController < ApplicationController
   def create
     client = Facebook.auth(callback_facebook_url).client
     client.authorization_code = params[:code]
-    access_token = client.access_token!
+    access_token = client.access_token! :client_auth_body
     user = FbGraph::User.me(access_token).fetch
     authenticate Facebook.identify(user)
     redirect_to dashboard_url
