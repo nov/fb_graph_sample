@@ -31,6 +31,7 @@ $(function () {
     FB.ui({
       method: 'apprequests',
       message: 'You should learn more about this awesome game.',
+      filters: ['app_non_users'],
       data: 'tracking information for the user'
     });
   });
