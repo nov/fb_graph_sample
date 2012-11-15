@@ -14,7 +14,7 @@ class FacebooksController < ApplicationController
 
   # handle Normal OAuth flow: start
   def new
-    client = Facebook.auth(callback_facebook_url(hoge: "http://example.com")).client
+    client = Facebook.auth(callback_facebook_url).client
     redirect_to client.authorization_uri(
       :scope => Facebook.config[:scope]
     )
@@ -22,7 +22,7 @@ class FacebooksController < ApplicationController
 
   # handle Normal OAuth flow: callback
   def create
-    client = Facebook.auth(callback_facebook_url(hoge: "http://example.com")).client
+    client = Facebook.auth(callback_facebook_url).client
     client.authorization_code = params[:code]
     access_token = client.access_token! :client_auth_body
     user = FbGraph::User.me(access_token).fetch
