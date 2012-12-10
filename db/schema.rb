@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -17,15 +18,15 @@ ActiveRecord::Schema.define(:version => 20110927070839) do
     t.string   "description"
     t.string   "image_url"
     t.integer  "points"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "facebooks", :force => true do |t|
     t.string   "identifier",   :limit => 20
     t.string   "access_token"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
   create_table "subscriptions", :force => true do |t|
@@ -34,8 +35,8 @@ ActiveRecord::Schema.define(:version => 20110927070839) do
     t.string   "fields"
     t.string   "verify_token"
     t.text     "history_json"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
 end
