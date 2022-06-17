@@ -31,6 +31,7 @@ GEM
     arel (3.0.2)
     attr_required (0.0.5)
     builder (3.0.4)
+    concurrent-ruby (1.1.10)
     erubis (2.7.0)
     fb_graph (2.6.1)
       httpclient (>= 2.2.0.2)
@@ -39,7 +40,8 @@ GEM
       tzinfo
     hike (1.2.1)
     httpclient (2.3.2)
-    i18n (0.6.1)
+    i18n (0.9.5)
+      concurrent-ruby (~> 1.0)
     journey (1.0.4)
     json (1.7.6)
     mail (2.4.4)
